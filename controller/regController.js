@@ -85,4 +85,8 @@ router.post('/update',(req,res,next)=>{
     //getmovie.update({nameofthemovie:req.body.nameofthemovie},{$push: {commentofthemovie: req.body.commentofthemovie}});
 });
 
+app.get('/',(req, res, next) => {
+    res.status(200).json("controller");
+});
+
 module.exports = router;
