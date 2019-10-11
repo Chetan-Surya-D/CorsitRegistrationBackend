@@ -30,7 +30,7 @@ router.post('/fileUpload', upload.single('file'), (req, res, next) => {
     console.log(file.filename);
     if(!file) {
         const err = new Error('File not found')
-        err.httpStatusCode = 500
+        err.httpStatusCode = 400
         return next(err)
     }
     res.send(file);
