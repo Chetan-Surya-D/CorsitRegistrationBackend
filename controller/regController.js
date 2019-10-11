@@ -33,6 +33,9 @@ router.post('/fileUpload', upload.single('file'), (req, res, next) => {
         err.httpStatusCode = 400
         return next(err)
     }
+    if(err) {
+        res.status(404).json(err)
+    }
     res.send(file);
 })
 
