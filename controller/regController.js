@@ -7,7 +7,7 @@ const request = require('request');
 let usn = null;
 const storage = multer.diskStorage({
     destination: (req, file, callBack) => {
-        callBack(null, 'Bill_Image_Upload')
+        callBack(null, 'Bill_Images_Upload')
     },
     filename: (req, file, callBack) => {
         callBack(null, `BillImage_${usn}.jpg`)
@@ -32,9 +32,6 @@ router.post('/fileUpload', upload.single('file'), (req, res, next) => {
         const err = new Error('File not found')
         err.httpStatusCode = 400
         return next(err)
-    }
-    if(err) {
-        res.status(404).json(err)
     }
     res.send(file);
 })
